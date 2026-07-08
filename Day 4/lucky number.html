@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Number Game</title>
+    <link rel="stylesheet" href="lucky number.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🍀 Lucky Number Game</h1>
+
+        <p>Guess the Lucky Number (0 - 9)</p>
+
+        <input type="number" id="num" min="0" max="9" placeholder="Enter a Number">
+
+        <button onclick="checkLucky()">Check Luck</button>
+
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+        function checkLucky() {
+
+            let userNumber = document.getElementById("num").value;
+            let luckyNumber = 2;
+
+            if(userNumber == luckyNumber){
+                document.getElementById("result").innerHTML =
+                "🎉 Congratulations! Lucky Number Found!";
+                document.getElementById("result").style.color = "#00ff88";
+            }
+            else{
+                document.getElementById("result").innerHTML =
+                "😔 Better Luck Next Time!";
+                document.getElementById("result").style.color = "#ffb703";
+            }
+        }
+    </script>
+
+</body>
+</html>
