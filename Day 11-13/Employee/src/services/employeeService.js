@@ -1,28 +1,26 @@
-import axios from "axios";
+import api from "./api";
 
-//API URL
-
-const API_URL="https://6a4b3681f5eab0bb6b6256ec.mockapi.io/Employees";
-
-//GET EMPLOYEES
- 
-export const getEmployees=()=>{
-
-    return axios.get(API_URL);
-};
-//POST 
-
-export const addEmployee=(employee)=>{
-    return axios.post(API_URL,employee);
+// Get all employees
+export const getEmployees = () => {
+  return api.get("/employees");
 };
 
-//PUT-->https://6a48e677a033dcb98d65067b.mockapi.io/employees/id
-export const updateEmployee=(id,employee)=>{
-    return axios.put(`${API_URL}/${id}`,employee);
+// Get one employee
+export const getEmployeeById = (id) => {
+  return api.get(`/employees/${id}`);
 };
 
-//DELETE->https://6a48e677a033dcb98d65067b.mockapi.io/employees/id
+// Add employee
+export const addEmployee = (employee) => {
+  return api.post("/employees", employee);
+};
 
-export const deleteEmployee=(id)=>{
-    return axios.delete(`${API_URL}/${id}`);
+// Update employee
+export const updateEmployee = (id, employee) => {
+  return api.put(`/employees/${id}`, employee);
+};
+
+// Delete employee
+export const deleteEmployee = (id) => {
+  return api.delete(`/employees/${id}`);
 };

@@ -1,63 +1,34 @@
-function Reports({ employees }) {
+import AdminLayout from "../layouts/AdminLayout";
 
+function Reports() {
   return (
+    <AdminLayout>
+      <h1>Reports</h1>
 
-    <div>
-
-      <div className="dashboard">
-
-        <div className="card">
-
-          <h2>{employees.length}</h2>
-
-          <p>Total Employees</p>
-
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3,1fr)",
+          gap: "20px",
+          marginTop: "25px",
+        }}
+      >
+        <div className="dashboard-card">
+          <h3>Total Employees</h3>
+          <h2>256</h2>
         </div>
 
-        <div className="card">
-
-          <h2>95%</h2>
-
-          <p>Productivity</p>
-
+        <div className="dashboard-card">
+          <h3>Attendance</h3>
+          <h2>93%</h2>
         </div>
 
-        <div className="card">
-
-          <h2>92%</h2>
-
-          <p>Attendance</p>
-
+        <div className="dashboard-card">
+          <h3>Leaves</h3>
+          <h2>18</h2>
         </div>
-
       </div>
-
-      <div className="employee-table-container">
-
-        <h2 className="table-title">
-
-          Monthly HR Report
-
-        </h2>
-
-        <ul>
-
-          <li>Total Employees : {employees.length}</li>
-
-          <li>New Employees : 12</li>
-
-          <li>Resigned Employees : 2</li>
-
-          <li>Departments : 6</li>
-
-          <li>Average Attendance : 92%</li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
+    </AdminLayout>
   );
 }
 

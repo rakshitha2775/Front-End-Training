@@ -1,127 +1,122 @@
-import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import Sidebar from "./components/Sidebar";
+// Welcome & Login
+import Welcome from "./pages/Welcome";
+import Login from "./pages/Login";
 
-import Dashboard from "./pages/Dashboard";
+// Admin Pages
+import AdminDashboard from "./pages/AdminDashboard";
 import Employees from "./pages/Employees";
+import Attendance from "./pages/Attendance";
 import Departments from "./pages/Departments";
+import Leave from "./pages/Leave";
+import Payroll from "./pages/Payroll";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 
-import {
-  getEmployees,
-  addEmployee,
-  updateEmployee,
-  deleteEmployee,
-} from "./services/employeeService";
-
-import "./App.css";
+// Employee Pages
+import EmployeeDashboard from "./pages/EmployeeDashboard";
+import Profile from "./pages/Profile";
 
 function App() {
-  const [employees, setEmployees] = useState([]);
-  const [editEmployee, setEditEmployee] = useState(null);
-
-  // Load Employees
-  const loadEmployees = () => {
-    getEmployees()
-      .then((response) => {
-        setEmployees(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    loadEmployees();
-  }, []);
-
-  // Add Employee
-  const insertEmployee = (employee) => {
-    addEmployee(employee)
-      .then(() => {
-        loadEmployees();
-      })
-      .catch((error) => console.log(error));
-  };
-
-  // Update Employee
-  const editEmployeeData = (employee) => {
-    updateEmployee(employee.id, employee)
-      .then(() => {
-        setEditEmployee(null);
-        loadEmployees();
-      })
-      .catch((error) => console.log(error));
-  };
-
-  // Delete Employee
-  const removeEmployee = (id) => {
-    deleteEmployee(id)
-      .then(() => {
-        loadEmployees();
-      })
-      .catch((error) => console.log(error));
-  };
-
   return (
-    <div className="container">
-      <Sidebar />
+    <BrowserRouter>
+      <Routes>
 
-      <div className="main">
+        {/* Home */}
+        <Route path="/" element={<Welcome />} />
 
-        <header className="header">
-          <h1 className="heading">Employee Management System</h1>
-          <p className="sub-heading">
-            Corporate Human Resource Dashboard
-          </p>
-        </header>
+        {/* Login */}
+        <Route
+          path="/admin-login"
+          element={<Login role="admin" />}
+        />
 
-        <Routes>
+        <Route
+          path="/employee-login"
+          element={<Login role="employee" />}
+        />
 
-          <Route
-            path="/"
-            element={<Dashboard employees={employees} />}
-          />
+        {/* ---------------- ADMIN ---------------- */}
 
-          <Route
-            path="/employees"
-            element={
-              <Employees
-                employees={employees}
-                addEmployee={insertEmployee}
-                updateEmployee={editEmployeeData}
-                editEmployee={editEmployee}
-                setEditEmployee={setEditEmployee}
-                onDelete={removeEmployee}
-              />
-            }
-          />
+        <Route
+          path="/admin"
+          element={<Navigate to="/admin/dashboard" replace />}
+        />
 
-          <Route
-            path="/departments"
-            element={<Departments />}
-          />
+        <Route
+          path="/admin/dashboard"
+          element={<AdminDashboard />}
+        />
 
-          <Route
-            path="/reports"
-            element={<Reports employees={employees} />}
-          />
+        <Route
+          path="/employees"
+          element={<Employees />}
+        />
 
-          <Route
-            path="/settings"
-            element={<Settings />}
-          />
+        <Route
+          path="/attendance"
+          element={<Attendance />}
+        />
 
-        </Routes>
+        <Route
+          path="/departments"
+          element={<Departments />}
+        />
 
-        <footer className="footer">
-          © 2026 Employee Management System
-        </footer>
+        <Route
+          path="/leave"
+          element={<Leave />}
+        />
 
-      </div>
-    </div>
+        <Route
+          path="/payroll"
+          element={<Payroll />}
+        />
+
+        <Route
+          path="/reports"
+          element={<Reports />}
+        />
+
+        <Route
+          path="/settings"
+          element={<Settings />}
+        />
+
+        {/* ---------------- EMPLOYEE ---------------- */}
+
+        <Route
+          path="/employee"
+          element={<Navigate to="/employee/dashboard" replace />}
+        />
+
+        <Route
+          path="/employee/dashboard"
+          element={<EmployeeDashboard />}
+        />
+
+        <Route path="/profile/:id" element={<Profile />} />
+
+        {/* 404 */}
+        <Route
+          path="*"
+          element={
+            <div
+              style={{
+                textAlign: "center",
+                marginTop: "100px",
+                fontSize: "30px",
+                fontWeight: "bold",
+              }}
+            >
+              404 - Page Not Found
+            </div>
+          }
+        />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 

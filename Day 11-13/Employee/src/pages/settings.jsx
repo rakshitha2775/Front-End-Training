@@ -1,43 +1,63 @@
+import AdminLayout from "../layouts/AdminLayout";
+
 function Settings() {
-
   return (
+    <AdminLayout>
+      <h1>Settings</h1>
 
-    <div className="employee-table-container">
+      <div
+        style={{
+          background: "#fff",
+          padding: "25px",
+          borderRadius: "10px",
+          marginTop: "20px",
+        }}
+      >
+        <h3>Application Settings</h3>
 
-      <h2 className="table-title">
+        <br />
 
-        Admin Settings
+        <label>Company Name</label>
 
-      </h2>
+        <input
+          type="text"
+          placeholder="ABC Technologies"
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginTop: "10px",
+            marginBottom: "20px",
+          }}
+        />
 
-      <br/>
+        <label>Company Email</label>
 
-      <p><b>Admin Name :</b> HR Manager</p>
+        <input
+          type="email"
+          placeholder="admin@company.com"
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginTop: "10px",
+          }}
+        />
 
-      <p><b>Email :</b> hr@company.com</p>
+        <br />
+        <br />
 
-      <p><b>Role :</b> Administrator</p>
-
-      <p><b>Version :</b> Employee Management v1.0</p>
-
-      <br/>
-
-      <button className="edit-btn">
-
-        Change Password
-
-      </button>
-
-      &nbsp;
-
-      <button className="delete-btn">
-
-        Logout
-
-      </button>
-
-    </div>
-
+        <button
+          style={{
+            padding: "12px 20px",
+            background: "#2563EB",
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+          }}
+        >
+          Save Settings
+        </button>
+      </div>
+    </AdminLayout>
   );
 }
 

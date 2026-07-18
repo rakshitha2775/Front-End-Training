@@ -1,103 +1,75 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-function EmployeeForm({ addEmployee, editEmployee }) {
+function EmployeeForm({ addEmployee }) {
 
   const [employee, setEmployee] = useState({
     name: "",
     department: "",
-    email: "",
+    designation: "",
+    email: ""
   });
-
-  useEffect(() => {
-    if (editEmployee) {
-      setEmployee(editEmployee);
-    }
-  }, [editEmployee]);
 
   const handleChange = (e) => {
     setEmployee({
       ...employee,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
 
-    if (
-      employee.name === "" ||
-      employee.department === "" ||
-      employee.email === ""
-    ) {
-      alert("Please fill all fields");
-      return;
-    }
-
-    addEmployee(employee);
+    addEmployee({
+      id: Date.now(),
+      ...employee
+    });
 
     setEmployee({
       name: "",
       department: "",
-      email: "",
+      designation: "",
+      email: ""
     });
+
   };
 
   return (
-    <div className="form-container">
 
-      <h2>Add Employee</h2>
+    <form className="employee-form" onSubmit={handleSubmit}>
 
-      <form onSubmit={handleSubmit}>
+      <input
+        name="name"
+        placeholder="Employee Name"
+        value={employee.name}
+        onChange={handleChange}
+      />
 
-        <div className="input-group">
+      <input
+        name="department"
+        placeholder="Department"
+        value={employee.department}
+        onChange={handleChange}
+      />
 
-          <label>Employee Name</label>
+      <input
+        name="designation"
+        placeholder="Designation"
+        value={employee.designation}
+        onChange={handleChange}
+      />
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter employee name"
-            value={employee.name}
-            onChange={handleChange}
-          />
+      <input
+        name="email"
+        placeholder="Email"
+        value={employee.email}
+        onChange={handleChange}
+      />
 
-        </div>
+      <button>Add Employee</button>
 
-        <div className="input-group">
+    </form>
 
-          <label>Department</label>
-
-          <input
-            type="text"
-            name="department"
-            placeholder="Enter department"
-            value={employee.department}
-            onChange={handleChange}
-          />
-
-        </div>
-
-        <div className="input-group">
-
-          <label>Email</label>
-
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            value={employee.email}
-            onChange={handleChange}
-          />
-
-        </div>
-
-        <button className="save-btn">
-          Add Employee
-        </button>
-
-      </form>
-
-    </div>
   );
 }
 

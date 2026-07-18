@@ -1,66 +1,49 @@
+import AdminLayout from "../layouts/AdminLayout";
+
 function Departments() {
   return (
+    <AdminLayout>
+      <h1>Departments</h1>
 
-    <div className="employee-table-container">
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3,1fr)",
+          gap: "20px",
+          marginTop: "25px",
+        }}
+      >
+        <div className="dashboard-card">
+          <h3>Human Resources</h3>
+          <p>15 Employees</p>
+        </div>
 
-      <h2 className="table-title">
-        Departments
-      </h2>
+        <div className="dashboard-card">
+          <h3>Information Technology</h3>
+          <p>48 Employees</p>
+        </div>
 
-      <table className="employee-table">
+        <div className="dashboard-card">
+          <h3>Finance</h3>
+          <p>12 Employees</p>
+        </div>
 
-        <thead>
+        <div className="dashboard-card">
+          <h3>Marketing</h3>
+          <p>20 Employees</p>
+        </div>
 
-          <tr>
+        <div className="dashboard-card">
+          <h3>Sales</h3>
+          <p>32 Employees</p>
+        </div>
 
-            <th>Department</th>
-
-            <th>Manager</th>
-
-            <th>Employees</th>
-
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>Human Resources</td>
-            <td>Priya</td>
-            <td>10</td>
-          </tr>
-
-          <tr>
-            <td>Information Technology</td>
-            <td>Arun</td>
-            <td>18</td>
-          </tr>
-
-          <tr>
-            <td>Finance</td>
-            <td>Divya</td>
-            <td>8</td>
-          </tr>
-
-          <tr>
-            <td>Marketing</td>
-            <td>Karthik</td>
-            <td>12</td>
-          </tr>
-
-          <tr>
-            <td>Sales</td>
-            <td>Ramesh</td>
-            <td>15</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-    </div>
-
+        <div className="dashboard-card">
+          <h3>Support</h3>
+          <p>18 Employees</p>
+        </div>
+      </div>
+    </AdminLayout>
   );
 }
 

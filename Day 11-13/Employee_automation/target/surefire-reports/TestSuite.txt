@@ -1,15 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 77.61 s <<< FAILURE! -- in TestSuite
-com.employee.automation.tests.EditEmployeeTest.editEmployeeTest -- Time elapsed: 31.41 s <<< FAILURE!
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 86.72 s <<< FAILURE! -- in TestSuite
+com.employee.automation.tests.EditEmployeeTest.editEmployeeTest -- Time elapsed: 31.62 s <<< FAILURE!
 org.openqa.selenium.TimeoutException: 
-Expected condition failed: waiting for element to be clickable: By.xpath: (//button[contains(@id,'editEmployee')])[1] (tried for 10 second(s) with 500 milliseconds interval)
+Expected condition failed: waiting for element to be clickable: By.id: editEmployee (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: '4.34.0', revision: '707dcb4246*'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.11'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 150.0.7871.127, chrome: {chromedriverVersion: 150.0.7871.124 (9261fd0a595..., userDataDir: C:\Users\ASUSTU~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51457}, goog:processID: 53344, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51457/devtoo..., se:cdpVersion: 150.0.7871.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: df6915ab534601172f19754bb6a4a17d
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 150.0.7871.127, chrome: {chromedriverVersion: 150.0.7871.124 (9261fd0a595..., userDataDir: C:\Users\ASUSTU~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53435}, goog:processID: 38116, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53435/devtoo..., se:cdpVersion: 150.0.7871.127, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b477d558c994247aa01d8fa5b34a5e3b
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
 	at com.employee.automation.pages.EmployeePage.clickEdit(EmployeePage.java:310)

@@ -1,21 +1,40 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-soft: #eef7f6;
+  --text: #172033;
+  --muted: #697386;
+  --primary: #f97316;
+  --primary-dark: #c2410c;
+  --accent: #14b8a6;
+  --accent-dark: #0f766e;
+  --info: #2563eb;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --border: #e5eaf2;
+  --shadow: 0 14px 35px rgba(23, 32, 51, 0.08);
 }
 
-body{
-  font-family:'Segoe UI',sans-serif;
-  background:#f5f5f5;
-  color:#222;
+body {
+  background: var(--bg);
+  color: var(--text);
 }
 
-button{
-  cursor:pointer;
-  border:none;
-  outline:none;
+.card,
+.dashboard-card,
+.employee-card,
+.report-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
 }
 
-input{
-  outline:none;
+button,
+.primary-btn {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  border: 0;
+  border-radius: 8px;
 }

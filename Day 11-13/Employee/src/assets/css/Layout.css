@@ -1,0 +1,85 @@
+/* ===========================
+   MAIN LAYOUT
+=========================== */
+
+.layout{
+    display:flex;
+    background:#eef4ff;
+    min-height:100vh;
+}
+
+/* ===========================
+   CONTENT AREA
+=========================== */
+
+.main-container{
+    flex:1;
+    margin-left:260px;
+    transition:.3s;
+}
+
+/* ===========================
+   PAGE CONTENT
+=========================== */
+
+.page-content{
+    padding:30px;
+    margin-top:90px;
+    min-height:calc(100vh - 90px);
+
+    background:linear-gradient(
+        135deg,
+        #eef4ff,
+        #f8fbff
+    );
+}
+
+/* ===========================
+   CUSTOM SCROLLBAR
+=========================== */
+
+.page-content::-webkit-scrollbar{
+    width:8px;
+}
+
+.page-content::-webkit-scrollbar-thumb{
+    background:#2563eb;
+    border-radius:20px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.main-container{
+
+margin-left:80px;
+
+}
+
+.page-content{
+
+padding:20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.main-container{
+
+margin-left:0;
+
+}
+
+.page-content{
+
+padding:15px;
+margin-top:80px;
+
+}
+
+}
